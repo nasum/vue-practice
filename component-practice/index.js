@@ -17,11 +17,24 @@ $(document).ready(function(){
     }
   });
 
+  var ComponentList = Vue.extend({
+    template: '<ul><li v-repeat="list"><my-component></my-component></li></ul>',
+    data: function(){
+      return {
+        list: 5
+      }
+    },
+    components: {
+      myComponent: MyComponent
+    }
+  });
+
   var vue = new Vue({
     el: 'body',
     components: {
       myComponent: MyComponent,
-      myListComponent: MyComponentList
+      myListComponent: MyComponentList,
+      componentList: ComponentList
     }
   });
 });
